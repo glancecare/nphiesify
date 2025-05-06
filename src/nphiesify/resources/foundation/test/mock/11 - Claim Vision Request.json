@@ -1,0 +1,542 @@
+{
+	"resourceType": "Bundle",
+	"id": "d3ca4fee-3d45-4dc0-b96d-df27d6bf8173",
+	"meta": {
+		"profile": [
+			"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/bundle|1.0.0"
+		]
+	},
+	"type": "message",
+	"timestamp": "2021-08-29T14:56:49.034+03:00",
+	"entry": [
+		{
+			"fullUrl": "urn:uuid:f4a14305-a9af-427d-9f1c-64c8e2d98173",
+			"resource": {
+				"resourceType": "MessageHeader",
+				"id": "f4a14305-a9af-427d-9f1c-64c8e2d98173",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/message-header|1.0.0"
+					]
+				},
+				"eventCoding": {
+					"system": "http://nphies.sa/terminology/CodeSystem/ksa-message-events",
+					"code": "claim-request"
+				},
+				"destination": [
+					{
+						"endpoint": "http://nphies.sa/license/payer-license/N-I-00001",
+						"receiver": {
+							"type": "Organization",
+							"identifier": {
+								"system": "http://nphies.sa/license/payer-license",
+								"value": "N-I-00001"
+							}
+						}
+					}
+				],
+				"sender": {
+					"type": "Organization",
+					"identifier": {
+						"system": "http://nphies.sa/license/provider-license",
+						"value": "N-F-00005"
+					}
+				},
+				"source": {
+					"endpoint": "http://saudiopticalclinic.com.sa"
+				},
+				"focus": [
+					{
+						"reference": "http://saudiopticalclinic.com.sa/Claim/128173"
+					}
+				]
+			}
+		},
+		{
+			"fullUrl": "http://saudiopticalclinic.com.sa/Claim/128173",
+			"resource": {
+				"resourceType": "Claim",
+				"id": "128173",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/vision-claim|1.0.0"
+					]
+				},
+				"extension": [
+					{
+						"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-episode",
+						"valueIdentifier": {
+							"system": "http://saudiopticalclinic.com.sa/episode",
+							"value": "EpisodeID_20220120_43567"
+						}
+					}
+				],
+				"identifier": [
+					{
+						"system": "http://saudiopticalclinic.com.sa/claim",
+						"value": "req_9128173"
+					}
+				],
+				"status": "active",
+				"type": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/claim-type",
+							"code": "vision"
+						}
+					]
+				},
+				"subType": {
+					"coding": [
+						{
+							"system": "http://nphies.sa/terminology/CodeSystem/claim-subtype",
+							"code": "op"
+						}
+					]
+				},
+				"use": "claim",
+				"patient": {
+					"reference": "http://saudiopticalclinic.com.sa/Patient/3"
+				},
+				"created": "2021-08-29",
+				"insurer": {
+					"reference": "http://saudiopticalclinic.com.sa/Organization/11"
+				},
+				"provider": {
+					"reference": "http://saudiopticalclinic.com.sa/Organization/10"
+				},
+				"priority": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/processpriority",
+							"code": "normal"
+						}
+					]
+				},
+				"payee": {
+					"type": {
+						"coding": [
+							{
+								"system": "http://terminology.hl7.org/CodeSystem/payeetype",
+								"code": "provider"
+							}
+						]
+					}
+				},
+				"careTeam": [
+					{
+						"sequence": 1,
+						"provider": {
+							"reference": "http://saudiopticalclinic.com.sa/Practitioner/7"
+						},
+						"role": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/claimcareteamrole",
+									"code": "primary"
+								}
+							]
+						},
+						"qualification": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/practice-codes",
+									"code": "11.09"
+								}
+							]
+						}
+					}
+				],
+				"diagnosis": [
+					{
+						"sequence": 1,
+						"diagnosisCodeableConcept": {
+							"coding": [
+								{
+									"system": "http://hl7.org/fhir/sid/icd-10-am",
+									"code": "Z01.0"
+								}
+							]
+						},
+						"type": [
+							{
+								"coding": [
+									{
+										"system": "http://nphies.sa/terminology/CodeSystem/diagnosis-type",
+										"code": "principal"
+									}
+								]
+							}
+						]
+					}
+				],
+				"insurance": [
+					{
+						"sequence": 1,
+						"focal": true,
+						"coverage": {
+							"reference": "http://saudiopticalclinic.com.sa/Coverage/3"
+						}
+					}
+				],
+				"item": [
+					{
+						"sequence": 1,
+						"careTeamSequence": [
+							1
+						],
+						"diagnosisSequence": [
+							1
+						],
+						"extension": [
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-tax",
+								"valueMoney": {
+									"value": 60,
+									"currency": "SAR"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-patient-share",
+								"valueMoney": {
+									"value": 20,
+									"currency": "SAR"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-patientInvoice",
+								"valueIdentifier": {
+									"system": "http://saudiopticalclinic.com.sa/patientInvoice",
+									"value": "Invc-20220120-99087"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-patientInvoice",
+								"valueIdentifier": {
+									"system": "http://sgh.com/patientInvoice",
+									"value": "Invc-20220120-Proc425030002"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-package",
+								"valueBoolean": false
+							}
+						],
+						"productOrService": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/procedures",
+									"code": "42503-00-02"
+								}
+							]
+						},
+						"servicedDate": "2021-08-29",
+						"quantity": {
+							"value": 1
+						},
+						"unitPrice": {
+							"value": 400,
+							"currency": "SAR"
+						},
+						"factor": 1,
+						"net": {
+							"value": 460,
+							"currency": "SAR"
+						}
+					}
+				],
+				"total": {
+					"value": 460,
+					"currency": "SAR"
+				}
+			}
+		},
+		{
+			"fullUrl": "http://saudiopticalclinic.com.sa/Patient/3",
+			"resource": {
+				"resourceType": "Patient",
+				"id": "3",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/patient|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+									"code": "PRC"
+								}
+							]
+						},
+						"system": "http://nphies.sa/identifier/iqama",
+						"value": "0000000003"
+					}
+				],
+				"active": true,
+				"name": [
+					{
+						"text": "Sara Khan",
+						"family": "Khan",
+						"given": [
+							"Sara"
+						]
+					}
+				],
+				"gender": "female",
+				"_gender": {
+					"extension": [
+						{
+							"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-ksa-administrative-gender",
+							"valueCodeableConcept": {
+								"coding": [
+									{
+										"system": "http://nphies.sa/terminology/CodeSystem/ksa-administrative-gender",
+										"code": "female"
+									}
+								]
+							}
+						}
+					]
+				},
+				"birthDate": "1974-03-13"
+			}
+		},
+		{
+			"fullUrl": "http://saudiopticalclinic.com.sa/Patient/123454186",
+			"resource": {
+				"resourceType": "Patient",
+				"id": "123454186",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/patient|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+									"code": "PRC",
+									"display": "iqama"
+								}
+							]
+						},
+						"system": "http://nphies.sa/identifier/iqama",
+						"value": "0000000001"
+					}
+				],
+				"active": true,
+				"name": [
+					{
+						"use": "official",
+						"text": "Ahmad Khaled Abbas",
+						"family": "Ahmad",
+						"given": [
+							"Khaled",
+							"Abbas"
+						]
+					}
+				],
+				"telecom": [
+					{
+						"system": "phone",
+						"value": "+966512345691"
+					}
+				],
+				"gender": "male",
+				"_gender": {
+					"extension": [
+						{
+							"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-ksa-administrative-gender",
+							"valueCodeableConcept": {
+								"coding": [
+									{
+										"system": "http://nphies.sa/terminology/CodeSystem/ksa-administrative-gender",
+										"code": "male",
+										"display": "Male"
+									}
+								]
+							}
+						}
+					]
+				},
+				"birthDate": "1984-12-25"
+			}
+		},
+		{
+			"fullUrl": "http://saudiopticalclinic.com.sa/Coverage/3",
+			"resource": {
+				"resourceType": "Coverage",
+				"id": "3",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/coverage|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"system": "http://sni.com.sa/memberid",
+						"value": "0000000003"
+					}
+				],
+				"status": "active",
+				"type": {
+					"coding": [
+						{
+							"system": "http://nphies.sa/terminology/CodeSystem/coverage-type",
+							"code": "EHCPOL",
+							"display": "extended healthcare"
+						}
+					]
+				},
+				"subscriber": {
+					"reference": "http://saudiopticalclinic.com.sa/Patient/123454186"
+				},
+				"beneficiary": {
+					"reference": "http://saudiopticalclinic.com.sa/Patient/3"
+				},
+				"relationship": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+							"code": "spouse",
+							"display": "Spouse"
+						}
+					]
+				},
+				"payor": [
+					{
+						"reference": "http://saudiopticalclinic.com.sa/Organization/11"
+					}
+				],
+				"class": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+									"code": "group"
+								}
+							]
+						},
+						"value": "CB135",
+						"name": "Insurance Group A"
+					},
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+									"code": "plan"
+								}
+							]
+						},
+						"value": "ABC123",
+						"name": "Insurance Group A"
+					}
+				],
+				"network": "Golden C"
+			}
+		},
+		{
+			"fullUrl": "http://saudiopticalclinic.com.sa/Practitioner/7",
+			"resource": {
+				"resourceType": "Practitioner",
+				"id": "7",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/practitioner|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+									"code": "MD"
+								}
+							]
+						},
+						"system": "http://nphies.sa/license/practitioner-license",
+						"value": "N-P-00004"
+					}
+				],
+				"active": true,
+				"name": [
+					{
+						"text": "Dr. Ashraf Naeem",
+						"family": "Naeem",
+						"given": [
+							"Ashraf"
+						]
+					}
+				]
+			}
+		},
+		{
+			"fullUrl": "http://saudiopticalclinic.com.sa/Organization/10",
+			"resource": {
+				"resourceType": "Organization",
+				"id": "10",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/provider-organization|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"system": "http://nphies.sa/license/provider-license",
+						"value": "N-F-00005"
+					}
+				],
+				"active": true,
+				"type": [
+					{
+						"coding": [
+							{
+								"system": "http://nphies.sa/terminology/CodeSystem/organization-type",
+								"code": "prov"
+							}
+						]
+					}
+				],
+				"name": "Saudi Optical Clinic"
+			}
+		},
+		{
+			"fullUrl": "http://saudiopticalclinic.com.sa/Organization/11",
+			"resource": {
+				"resourceType": "Organization",
+				"id": "11",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/insurer-organization|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"system": "http://nphies.sa/license/payer-license",
+						"value": "N-I-00001"
+					}
+				],
+				"active": true,
+				"type": [
+					{
+						"coding": [
+							{
+								"system": "http://nphies.sa/terminology/CodeSystem/organization-type",
+								"code": "ins"
+							}
+						]
+					}
+				],
+				"name": "Saudi National Insurance"
+			}
+		}
+	]
+}

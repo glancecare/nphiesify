@@ -1,0 +1,643 @@
+{
+	"resourceType": "Bundle",
+	"id": "9e4dbafa-1263-407d-ba38-f8879b0b3421",
+	"meta": {
+		"profile": [
+			"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/bundle|1.0.0"
+		]
+	},
+	"type": "message",
+	"timestamp": "2021-08-30T09:20:15.23+03:00",
+	"entry": [
+		{
+			"fullUrl": "urn:uuid:a7e4caf2-0441-40e5-97d2-5ae180273421",
+			"resource": {
+				"resourceType": "MessageHeader",
+				"id": "a7e4caf2-0441-40e5-97d2-5ae180273421",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/message-header|1.0.0"
+					]
+				},
+				"eventCoding": {
+					"system": "http://nphies.sa/terminology/CodeSystem/ksa-message-events",
+					"code": "claim-request"
+				},
+				"destination": [
+					{
+						"endpoint": "http://nphies.sa/license/payer-license/N-I-00001",
+						"receiver": {
+							"type": "Organization",
+							"identifier": {
+								"system": "http://nphies.sa/license/payer-license",
+								"value": "N-I-00001"
+							}
+						}
+					}
+				],
+				"sender": {
+					"type": "Organization",
+					"identifier": {
+						"system": "http://nphies.sa/license/provider-license",
+						"value": "N-F-00001"
+					}
+				},
+				"source": {
+					"endpoint": "http://sgh.sa.com"
+				},
+				"focus": [
+					{
+						"reference": "http://sgh.sa.com/Claim/483421"
+					}
+				]
+			}
+		},
+		{
+			"fullUrl": "http://sgh.sa.com/Claim/483421",
+			"resource": {
+				"resourceType": "Claim",
+				"id": "483421",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/institutional-claim|1.0.0"
+					]
+				},
+				"extension": [
+					{
+						"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-eligibility-offline-reference",
+						"valueString": "EligResp-31212432"
+					},
+					{
+						"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-eligibility-offline-date",
+						"valueDateTime": "2021-08-30"
+					},
+					{
+						"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-episode",
+						"valueIdentifier": {
+							"system":"http://sgh.sa.com/episode",
+							"value": "SGH_EpisodeID_48903211"
+						}
+					}
+				],
+				"identifier": [
+					{
+						"system": "http://sgh.sa.com/claim",
+						"value": "req_112483421"
+					}
+				],
+				"status": "active",
+				"type": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/claim-type",
+							"code": "institutional"
+						}
+					]
+				},
+				"subType": {
+					"coding": [
+						{
+							"system": "http://nphies.sa/terminology/CodeSystem/claim-subtype",
+							"code": "ip"
+						}
+					]
+				},
+				"use": "claim",
+				"patient": {
+					"reference": "http://sgh.com.sa/Patient/122106788"
+				},
+				"created": "2021-08-30",
+				"insurer": {
+					"reference": "http://sgh.com.sa/Organization/bff3aa1fbd3648619ac082357bf135db"
+				},
+				"provider": {
+					"reference": "http://sgh.com.sa/Organization/b1b3432921324f97af3be9fd0b1a14ae"
+				},
+				"priority": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/processpriority",
+							"code": "normal"
+						}
+					]
+				},
+				"payee": {
+					"type": {
+						"coding": [
+							{
+								"system": "http://terminology.hl7.org/CodeSystem/payeetype",
+								"code": "provider"
+							}
+						]
+					}
+				},
+				"careTeam": [
+					{
+						"sequence": 1,
+						"provider": {
+							"reference": "http://sgh.sa.com/Practitioner/7"
+						},
+						"role": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/claimcareteamrole",
+									"code": "primary"
+								}
+							]
+						},
+						"qualification": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/practice-codes",
+									"code": "08.26"
+								}
+							]
+						}
+					}
+				],
+				"supportingInfo": [
+					{
+						"sequence": 1,
+						"category": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/claim-information-category",
+									"code": "vital-sign-systolic"
+								}
+							]
+						},
+						"valueQuantity": {
+							"value": 130,
+							"system": "http://unitsofmeasure.org",
+							"code": "mm[Hg]"
+						}
+					},
+					{
+						"sequence": 2,
+						"category": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/claim-information-category",
+									"code": "vital-sign-diastolic"
+								}
+							]
+						},
+						"valueQuantity": {
+							"value": 85,
+							"system": "http://unitsofmeasure.org",
+							"code": "mm[Hg]"
+						}
+					},
+					{
+						"sequence": 3,
+						"category": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/claim-information-category",
+									"code": "vital-sign-height"
+								}
+							]
+						},
+						"valueQuantity": {
+							"value": 160,
+							"system": "http://unitsofmeasure.org",
+							"code": "cm"
+						}
+					},
+					{
+						"sequence": 4,
+						"category": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/claim-information-category",
+									"code": "vital-sign-weight"
+								}
+							]
+						},
+						"valueQuantity": {
+							"value": 70,
+							"system": "http://unitsofmeasure.org",
+							"code": "kg"
+						}
+					},
+					{
+						"sequence": 5,
+						"category": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/claim-information-category",
+									"code": "chief-complaint"
+								}
+							]
+						},
+						"code": {
+							"coding": [
+								{
+									"system": "http://hl7.org/fhir/sid/icd-10-am",
+									"code": "R07.1"
+								}
+							],
+							"text": "Chest pain on breathing"
+						}
+					}
+				],
+				"diagnosis": [
+					{
+						"sequence": 1,
+						"onAdmission": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/diagnosis-on-admission",
+									"code": "y"
+								}
+							]
+						},
+						"diagnosisCodeableConcept": {
+							"coding": [
+								{
+									"system": "http://hl7.org/fhir/sid/icd-10-am",
+									"code": "R07.1"
+								}
+							]
+						},
+						"type": [
+							{
+								"coding": [
+									{
+										"system": "http://nphies.sa/terminology/CodeSystem/diagnosis-type",
+										"code": "principal"
+									}
+								]
+							}
+						]
+					}
+				],
+				"insurance": [
+					{
+						"sequence": 1,
+						"focal": true,
+						"coverage": {
+							"reference": "http://sgh.com.sa/Coverage/1333"
+						}
+					}
+				],
+				"item": [
+					{
+						"extension": [
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-tax",
+								"valueMoney": {
+									"value": 15,
+									"currency": "SAR"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-patient-share",
+								"valueMoney": {
+									"value": 0,
+									"currency": "SAR"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-patientInvoice",
+								"valueIdentifier": {
+									"system": "http://sgh.com/patientInvoice",
+									"value": "Invc-20220120/IP-1110987"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-package",
+								"valueBoolean": false
+							}
+						],
+						"sequence": 1,
+						"careTeamSequence": [
+							1
+						],
+						"diagnosisSequence": [
+							1
+						],
+						"informationSequence": [
+							1,
+							2,
+							3,
+							4,
+							5
+						],
+						"productOrService": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/services",
+									"code": "83600-00-00",
+									"display": "General Practitioner Consultation"
+								}
+							]
+						},
+						"servicedDate": "2021-08-30",
+						"quantity": {
+							"value": 1
+						},
+						"unitPrice": {
+							"value": 100,
+							"currency": "SAR"
+						},
+						"net": {
+							"value": 115,
+							"currency": "SAR"
+						}
+					}
+				],
+				"total": {
+					"value": 115,
+					"currency": "SAR"
+				}
+			}
+		},
+		{
+			"fullUrl": "http://sgh.com.sa/Organization/b1b3432921324f97af3be9fd0b1a14ae",
+			"resource": {
+				"resourceType": "Organization",
+				"id": "b1b3432921324f97af3be9fd0b1a14ae",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/provider-organization|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"system": "http://nphies.sa/license/provider-license",
+						"value": "N-F-00001"
+					}
+				],
+				"active": true,
+				"type": [
+					{
+						"coding": [
+							{
+								"system": "http://nphies.sa/terminology/CodeSystem/organization-type",
+								"code": "prov"
+							}
+						]
+					}
+				],
+				"name": "Saudi General Hospital"
+			}
+		},
+		{
+			"fullUrl": "http://sgh.com.sa/Patient/122106788",
+			"resource": {
+				"resourceType": "Patient",
+				"id": "122106788",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/patient|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+									"code": "PRC",
+									"display": "iqama"
+								}
+							]
+						},
+						"system": "http://nphies.sa/identifier/iqama",
+						"value": "0000000002"
+					}
+				],
+				"active": true,
+				"name": [
+					{
+						"use": "official",
+						"text": "Muhammad Ali Abbas",
+						"family": "Abbas",
+						"given": [
+							"Muhammad",
+							"Ali"
+						]
+					}
+				],
+				"telecom": [
+					{
+						"system": "phone",
+						"value": "+966512210691"
+					}
+				],
+				"gender": "male",
+				"_gender": {
+					"extension": [
+						{
+							"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-ksa-administrative-gender",
+							"valueCodeableConcept": {
+								"coding": [
+									{
+										"system": "http://nphies.sa/terminology/CodeSystem/ksa-administrative-gender",
+										"code": "male",
+										"display": "Male"
+									}
+								]
+							}
+						}
+					]
+				},
+				"birthDate": "2010-08-21"
+			}
+		},
+		{
+			"fullUrl": "http://sgh.com.sa/Organization/bff3aa1fbd3648619ac082357bf135db",
+			"resource": {
+				"resourceType": "Organization",
+				"id": "bff3aa1fbd3648619ac082357bf135db",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/insurer-organization|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"system": "http://nphies.sa/license/payer-license",
+						"value": "N-I-00001"
+					}
+				],
+				"active": true,
+				"type": [
+					{
+						"coding": [
+							{
+								"system": "http://nphies.sa/terminology/CodeSystem/organization-type",
+								"code": "ins"
+							}
+						]
+					}
+				],
+				"name": "Saudi National Insurance"
+			}
+		},
+		{
+			"fullUrl": "http://sgh.com.sa/Coverage/1333",
+			"resource": {
+				"resourceType": "Coverage",
+				"id": "1333",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/coverage|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"system": "http://sni.com.sa/memberid",
+						"value": "0000000002"
+					}
+				],
+				"status": "active",
+				"type": {
+					"coding": [
+						{
+							"system": "http://nphies.sa/terminology/CodeSystem/coverage-type",
+							"code": "EHCPOL",
+							"display": "extended healthcare"
+						}
+					]
+				},
+				"subscriber": {
+					"reference": "http://sgh.com.sa/Patient/3662364643"
+				},
+				"beneficiary": {
+					"reference": "http://sgh.com.sa/Patient/122106788"
+				},
+				"relationship": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+							"code": "child",
+							"display": "Child"
+						}
+					]
+				},
+				"payor": [
+					{
+						"reference": "http://sgh.com.sa/Organization/bff3aa1fbd3648619ac082357bf135db"
+					}
+				],
+				"class": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+									"code": "group"
+								}
+							]
+						},
+						"value": "CB135",
+						"name": "Insurance Group A"
+					}
+				],
+				"network": "Golden C"
+			}
+		},
+		{
+			"fullUrl": "http://sgh.sa.com/Practitioner/7",
+			"resource": {
+				"resourceType": "Practitioner",
+				"id": "7",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/practitioner|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+									"code": "MD"
+								}
+							]
+						},
+						"system": "http://nphies.sa/license/practitioner-license",
+						"value": "N-P-00001"
+					}
+				],
+				"active": true,
+				"name": [
+					{
+						"use": "official",
+						"text": "Dr. Ameera Hassan",
+						"family": "Hassan",
+						"given": [
+							"Ameera"
+						]
+					}
+				]
+			}
+		},
+		{
+			"fullUrl": "http://sgh.com.sa/Patient/3662364643",
+			"resource": {
+				"resourceType": "Patient",
+				"id": "3662364643",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/patient|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+									"code": "PRC",
+									"display": "iqama"
+								}
+							]
+						},
+						"system": "http://nphies.sa/identifier/iqama",
+						"value": "0000000001"
+					}
+				],
+				"active": true,
+				"name": [
+					{
+						"use": "official",
+						"text": "Ahmad Khaled Abbas",
+						"family": "Abbas",
+						"given": [
+							"Ahmad",
+							"Khaled"
+						]
+					}
+				],
+				"telecom": [
+					{
+						"system": "phone",
+						"value": "+966512210643"
+					}
+				],
+				"gender": "male",
+				"_gender": {
+					"extension": [
+						{
+							"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-ksa-administrative-gender",
+							"valueCodeableConcept": {
+								"coding": [
+									{
+										"system": "http://nphies.sa/terminology/CodeSystem/ksa-administrative-gender",
+										"code": "male",
+										"display": "Male"
+									}
+								]
+							}
+						}
+					]
+				},
+				"birthDate": "1984-12-25"
+			}
+		}
+	]
+}

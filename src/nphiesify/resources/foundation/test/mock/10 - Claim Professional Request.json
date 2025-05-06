@@ -1,0 +1,497 @@
+{
+	"resourceType": "Bundle",
+	"id": "9004205a-65cc-4b97-af94-a04cb5e98702",
+	"meta": {
+		"profile": [
+			"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/bundle|1.0.0"
+		]
+	},
+	"type": "message",
+	"timestamp": "2021-10-07T09:39:10.32+03:00",
+	"entry": [
+		{
+			"fullUrl": "urn:uuid:54cf5884-662c-4f1d-85a2-a4a923a98702",
+			"resource": {
+				"resourceType": "MessageHeader",
+				"id": "54cf5884-662c-4f1d-85a2-a4a923a98702",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/message-header|1.0.0"
+					]
+				},
+				"eventCoding": {
+					"system": "http://nphies.sa/terminology/CodeSystem/ksa-message-events",
+					"code": "claim-request"
+				},
+				"destination": [
+					{
+						"endpoint": "http://nphies.sa/license/payer-license/N-I-00001",
+						"receiver": {
+							"type": "Organization",
+							"identifier": {
+								"system": "http://nphies.sa/license/payer-license",
+								"value": "N-I-00001"
+							}
+						}
+					}
+				],
+				"sender": {
+					"type": "Organization",
+					"identifier": {
+						"system": "http://nphies.sa/license/provider-license",
+						"value": "N-F-00001"
+					}
+				},
+				"source": {
+					"endpoint": "http://sgh.com.sa"
+				},
+				"focus": [
+					{
+						"reference": "http://sgh.com.sa/Claim/298702"
+					}
+				]
+			}
+		},
+		{
+			"fullUrl": "http://sgh.com.sa/Claim/298702",
+			"resource": {
+				"resourceType": "Claim",
+				"id": "298702",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/professional-claim|1.0.0"
+					]
+				},
+				"extension": [
+					{
+						"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-authorization-offline-date",
+						"valueDateTime": "2021-06-30T11:05:48+03:00"
+					},
+					{
+						"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-episode",
+						"valueIdentifier": {
+							"system":"http://sgh.sa.com/episode",
+							"value": "SGH_EpisodeID_2314596"
+						}
+					}
+				],
+				"identifier": [
+					{
+						"system": "http://sgh.com.sa/claim",
+						"value": "req_298702"
+					}
+				],
+				"status": "active",
+				"type": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/claim-type",
+							"code": "professional"
+						}
+					]
+				},
+				"subType": {
+					"coding": [
+						{
+							"system": "http://nphies.sa/terminology/CodeSystem/claim-subtype",
+							"code": "op"
+						}
+					]
+				},
+				"use": "claim",
+				"patient": {
+					"reference": "http://sgh.com.sa/Patient/123454186"
+				},
+				"created": "2021-10-07",
+				"insurer": {
+					"reference": "http://sgh.com.sa/Organization/bff3aa1fbd3648619ac082357bf135db"
+				},
+				"provider": {
+					"reference": "http://sgh.com.sa/Organization/b1b3432921324f97af3be9fd0b1a14ae"
+				},
+				"priority": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/processpriority",
+							"code": "normal"
+						}
+					]
+				},
+				"related": [
+					{
+						"claim": {
+							"type": "Claim",
+							"identifier": {
+								"system": "http://sgh.sa.com/claim",
+								"value": "req_136211"
+							}
+						},
+						"relationship": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/related-claim-relationship",
+									"code": "prior"
+								}
+							]
+						}
+					}
+				],
+				"payee": {
+					"type": {
+						"coding": [
+							{
+								"system": "http://terminology.hl7.org/CodeSystem/payeetype",
+								"code": "provider"
+							}
+						]
+					}
+				},
+				"careTeam": [
+					{
+						"sequence": 1,
+						"provider": {
+							"reference": "http://sni.com.sa/Practitioner/7"
+						},
+						"role": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/claimcareteamrole",
+									"code": "primary"
+								}
+							]
+						},
+						"qualification": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/practice-codes",
+									"code": "16.00"
+								}
+							]
+						}
+					}
+				],
+				"diagnosis": [
+					{
+						"sequence": 1,
+						"diagnosisCodeableConcept": {
+							"coding": [
+								{
+									"system": "http://hl7.org/fhir/sid/icd-10-am",
+									"code": "S62.10"
+								}
+							]
+						},
+						"type": [
+							{
+								"coding": [
+									{
+										"system": "http://nphies.sa/terminology/CodeSystem/diagnosis-type",
+										"code": "principal"
+									}
+								]
+							}
+						]
+					}
+				],
+				"insurance": [
+					{
+						"sequence": 1,
+						"focal": true,
+						"coverage": {
+							"reference": "http://sgh.com.sa/Coverage/1333"
+						},
+						"preAuthRef": [
+							"DEF987"
+						]
+					}
+				],
+				"item": [
+					{
+						"sequence": 1,
+						"careTeamSequence": [
+							1
+						],
+						"diagnosisSequence": [
+							1
+						],
+						"extension": [
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-tax",
+								"valueMoney": {
+									"value": 15.9,
+									"currency": "SAR"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-patient-share",
+								"valueMoney": {
+									"value": 20,
+									"currency": "SAR"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-patientInvoice",
+								"valueIdentifier": {
+									"system": "http://sgh.com/patientInvoice",
+									"value": "Invc-20220120/OP-883923"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-package",
+								"valueBoolean": false
+							}
+						],
+						"productOrService": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/services",
+									"code": "83620-00-10"
+								}
+							]
+						},
+						"servicedDate": "2021-10-07",
+						"quantity": {
+							"value": 1
+						},
+						"unitPrice": {
+							"value": 106,
+							"currency": "SAR"
+						},
+						"net": {
+							"value": 121.9,
+							"currency": "SAR"
+						}
+					}
+				],
+				"total": {
+					"value": 121.9,
+					"currency": "SAR"
+				}
+			}
+		},
+		{
+			"fullUrl": "http://sgh.com.sa/Organization/b1b3432921324f97af3be9fd0b1a14ae",
+			"resource": {
+				"resourceType": "Organization",
+				"id": "b1b3432921324f97af3be9fd0b1a14ae",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/provider-organization|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"system": "http://nphies.sa/license/provider-license",
+						"value": "N-F-00001"
+					}
+				],
+				"active": true,
+				"type": [
+					{
+						"coding": [
+							{
+								"system": "http://nphies.sa/terminology/CodeSystem/organization-type",
+								"code": "prov"
+							}
+						]
+					}
+				],
+				"name": "Saudi General Hospital"
+			}
+		},
+		{
+			"fullUrl": "http://sgh.com.sa/Patient/123454186",
+			"resource": {
+				"resourceType": "Patient",
+				"id": "123454186",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/patient|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+									"code": "PRC",
+									"display": "iqama"
+								}
+							]
+						},
+						"system": "http://nphies.sa/identifier/iqama",
+						"value": "0000000001"
+					}
+				],
+				"active": true,
+				"name": [
+					{
+						"use": "official",
+						"text": "Ahmad Khaled Abbas",
+						"family": "Ahmad",
+						"given": [
+							"Khaled",
+							"Abbas"
+						]
+					}
+				],
+				"telecom": [
+					{
+						"system": "phone",
+						"value": "+966512345691"
+					}
+				],
+				"gender": "male",
+				"_gender": {
+					"extension": [
+						{
+							"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-ksa-administrative-gender",
+							"valueCodeableConcept": {
+								"coding": [
+									{
+										"system": "http://nphies.sa/terminology/CodeSystem/ksa-administrative-gender",
+										"code": "male",
+										"display": "Male"
+									}
+								]
+							}
+						}
+					]
+				},
+				"birthDate": "1984-12-25"
+			}
+		},
+		{
+			"fullUrl": "http://sgh.com.sa/Organization/bff3aa1fbd3648619ac082357bf135db",
+			"resource": {
+				"resourceType": "Organization",
+				"id": "bff3aa1fbd3648619ac082357bf135db",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/insurer-organization|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"system": "http://nphies.sa/license/payer-license",
+						"value": "N-I-00001"
+					}
+				],
+				"active": true,
+				"type": [
+					{
+						"coding": [
+							{
+								"system": "http://nphies.sa/terminology/CodeSystem/organization-type",
+								"code": "ins"
+							}
+						]
+					}
+				],
+				"name": "Saudi National Insurance"
+			}
+		},
+		{
+			"fullUrl": "http://sgh.com.sa/Coverage/1333",
+			"resource": {
+				"resourceType": "Coverage",
+				"id": "1333",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/coverage|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"system": "http://sni.com.sa/memberid",
+						"value": "0000000001"
+					}
+				],
+				"status": "active",
+				"type": {
+					"coding": [
+						{
+							"system": "http://nphies.sa/terminology/CodeSystem/coverage-type",
+							"code": "EHCPOL",
+							"display": "extended healthcare"
+						}
+					]
+				},
+				"subscriber": {
+					"reference": "http://sgh.com.sa/Patient/123454186"
+				},
+				"beneficiary": {
+					"reference": "http://sgh.com.sa/Patient/123454186"
+				},
+				"relationship": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+							"code": "self",
+							"display": "Self"
+						}
+					]
+				},
+				"payor": [
+					{
+						"reference": "http://sgh.com.sa/Organization/bff3aa1fbd3648619ac082357bf135db"
+					}
+				],
+				"class": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+									"code": "group"
+								}
+							]
+						},
+						"value": "CB135",
+						"name": "Insurance Group A"
+					}
+				],
+				"network": "Golden C"
+			}
+		},
+		{
+			"fullUrl": "http://sni.com.sa/Practitioner/7",
+			"resource": {
+				"resourceType": "Practitioner",
+				"id": "7",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/practitioner|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+									"code": "MD"
+								}
+							]
+						},
+						"system": "http://nphies.sa/license/practitioner-license",
+						"value": "N-P-00003"
+					}
+				],
+				"active": true,
+				"name": [
+					{
+						"use": "official",
+						"text": "Dr. Amar Moustafa",
+						"family": "Moustafa",
+						"given": [
+							"Dr.",
+							"Amar"
+						]
+					}
+				]
+			}
+		}
+	]
+}

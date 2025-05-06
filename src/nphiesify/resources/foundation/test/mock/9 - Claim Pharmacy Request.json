@@ -1,0 +1,437 @@
+{
+	"resourceType": "Bundle",
+	"id": "9e4dbafa-1263-407d-ba38-f8879b0b2284",
+	"meta": {
+		"profile": [
+			"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/bundle|1.0.0"
+		]
+	},
+	"type": "message",
+	"timestamp": "2021-08-30T09:20:15.23+03:00",
+	"entry": [
+		{
+			"fullUrl": "urn:uuid:a7e4caf2-0441-40e5-97d2-5ae180272284",
+			"resource": {
+				"resourceType": "MessageHeader",
+				"id": "a7e4caf2-0441-40e5-97d2-5ae180272284",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/message-header|1.0.0"
+					]
+				},
+				"eventCoding": {
+					"system": "http://nphies.sa/terminology/CodeSystem/ksa-message-events",
+					"code": "claim-request"
+				},
+				"destination": [
+					{
+						"endpoint": "http://nphies.sa/license/payer-license/N-I-00001",
+						"receiver": {
+							"type": "Organization",
+							"identifier": {
+								"system": "http://nphies.sa/license/payer-license",
+								"value": "N-I-00001"
+							}
+						}
+					}
+				],
+				"sender": {
+					"type": "Organization",
+					"identifier": {
+						"system": "http://nphies.sa/license/provider-license",
+						"value": "N-F-00002"
+					}
+				},
+				"source": {
+					"endpoint": "http://saudicentralpharmacy.sa.com"
+				},
+				"focus": [
+					{
+						"reference": "http://saudicentralpharmacy.sa.com/Claim/482284"
+					}
+				]
+			}
+		},
+		{
+			"fullUrl": "http://saudicentralpharmacy.sa.com/Claim/482284",
+			"resource": {
+				"resourceType": "Claim",
+				"id": "482284",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/pharmacy-claim|1.0.0"
+					]
+				},
+				"extension": [
+					{
+						"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-authorization-offline-date",
+						"valueDateTime": "2021-06-30T11:05:48+03:00"
+					},
+					{
+						"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-episode",
+						"valueIdentifier": {
+							"system":"http://saudicentralpharmacy.sa.com/episode",
+							"value": "EpisodeID-209-0120"
+						}
+					}
+				],
+				"identifier": [
+					{
+						"system": "http://saudicentralpharmacy.sa.com/claim",
+						"value": "req_00112482284"
+					}
+				],
+				"status": "active",
+				"type": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/claim-type",
+							"code": "pharmacy"
+						}
+					]
+				},
+				"subType": {
+					"coding": [
+						{
+							"system": "http://nphies.sa/terminology/CodeSystem/claim-subtype",
+							"code": "op"
+						}
+					]
+				},
+				"use": "claim",
+				"patient": {
+					"reference": "http://saudicentralpharmacy.sa.com/Patient/123456777"
+				},
+				"created": "2021-08-30",
+				"insurer": {
+					"reference": "http://sni.com.sa/Organization/bff3aa1fbd3648619ac082357bf135db"
+				},
+				"provider": {
+					"reference": "http://saudicentralpharmacy.sa.com/Organization/b1b3432921324f97af3be9fd0b1a34fa"
+				},
+				"priority": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/processpriority",
+							"code": "normal"
+						}
+					]
+				},
+				"payee": {
+					"type": {
+						"coding": [
+							{
+								"system": "http://terminology.hl7.org/CodeSystem/payeetype",
+								"code": "provider"
+							}
+						]
+					}
+				},
+				"supportingInfo": [
+					{
+						"sequence": 1,
+						"category": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/claim-information-category",
+									"code": "days-supply"
+								}
+							]
+						},
+						"valueQuantity": {
+							"value": "30",
+							"system": "http://unitsofmeasure.org",
+							"code": "d"
+						}
+					}
+				],
+				"diagnosis": [
+					{
+						"sequence": 1,
+						"diagnosisCodeableConcept": {
+							"coding": [
+								{
+									"system": "http://hl7.org/fhir/sid/icd-10-am",
+									"code": "R07.1"
+								}
+							]
+						},
+						"type": [
+							{
+								"coding": [
+									{
+										"system": "http://nphies.sa/terminology/CodeSystem/diagnosis-type",
+										"code": "principal"
+									}
+								]
+							}
+						]
+					}
+				],
+				"insurance": [
+					{
+						"sequence": 1,
+						"focal": true,
+						"coverage": {
+							"reference": "http://saudicentralpharmacy.sa.com/Coverage/41"
+						},
+						"preAuthRef": [
+							"Pseudo-payer-Portal-Auth-02"
+						]
+					}
+				],
+				"item": [
+					{
+						"sequence": 1,
+						"diagnosisSequence": [
+							1
+						],
+						"extension": [
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-tax",
+								"valueMoney": {
+									"value": 9,
+									"currency": "SAR"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-patient-share",
+								"valueMoney": {
+									"value": 0,
+									"currency": "SAR"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-patientInvoice",
+								"valueIdentifier": {
+									"system": "http://saudicentralpharmacy.sa.com/patientInvoice",
+									"value": "Invc-20220120-90408"
+								}
+							},
+							{
+								"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-package",
+								"valueBoolean": false
+							}
+						],
+						"productOrService": {
+							"coding": [
+								{
+									"system": "http://nphies.sa/terminology/CodeSystem/medication-codes",
+									"code": "06285096001627",
+									"display": "Anti-viral for chest congestion"
+								}
+							]
+						},
+						"servicedDate": "2021-08-30",
+						"quantity": {
+							"value": 1
+						},
+						"unitPrice": {
+							"value": 60,
+							"currency": "SAR"
+						},
+						"net": {
+							"value": 69,
+							"currency": "SAR"
+						}
+					}
+				],
+				"total": {
+					"value": 69,
+					"currency": "SAR"
+				}
+			}
+		},
+		{
+			"fullUrl": "http://saudicentralpharmacy.sa.com/Organization/b1b3432921324f97af3be9fd0b1a34fa",
+			"resource": {
+				"resourceType": "Organization",
+				"id": "b1b3432921324f97af3be9fd0b1a34fa",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/provider-organization|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"system": "http://nphies.sa/license/provider-license",
+						"value": "N-F-00002"
+					}
+				],
+				"active": true,
+				"type": [
+					{
+						"coding": [
+							{
+								"system": "http://nphies.sa/terminology/CodeSystem/organization-type",
+								"code": "prov"
+							}
+						]
+					}
+				],
+				"name": "Saudi Central Pharmacy"
+			}
+		},
+		{
+			"fullUrl": "http://saudicentralpharmacy.sa.com/Patient/123456777",
+			"resource": {
+				"resourceType": "Patient",
+				"id": "123456777",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/patient|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+									"code": "PRC",
+									"display": "iqama"
+								}
+							]
+						},
+						"system": "http://nphies.sa/identifier/iqama",
+						"value": "5555346"
+					}
+				],
+				"active": true,
+				"name": [
+					{
+						"use": "official",
+						"text": "Zahi Fathi abdullah Tareeq",
+						"family": "Tareeq",
+						"given": [
+							"Zahi",
+							"Fathi",
+							"abdullah"
+						]
+					}
+				],
+				"telecom": [
+					{
+						"system": "phone",
+						"value": "+966512345691"
+					}
+				],
+				"gender": "male",
+				"_gender": {
+					"extension": [
+						{
+							"url": "http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/extension-ksa-administrative-gender",
+							"valueCodeableConcept": {
+								"coding": [
+									{
+										"system": "http://nphies.sa/terminology/CodeSystem/ksa-administrative-gender",
+										"code": "male",
+										"display": "Male"
+									}
+								]
+							}
+						}
+					]
+				},
+				"birthDate": "1988-10-13"
+			}
+		},
+		{
+			"fullUrl": "http://sni.com.sa/Organization/bff3aa1fbd3648619ac082357bf135db",
+			"resource": {
+				"resourceType": "Organization",
+				"id": "bff3aa1fbd3648619ac082357bf135db",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/insurer-organization|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"system": "http://nphies.sa/license/payer-license",
+						"value": "N-I-00001"
+					}
+				],
+				"active": true,
+				"type": [
+					{
+						"coding": [
+							{
+								"system": "http://nphies.sa/terminology/CodeSystem/organization-type",
+								"code": "ins"
+							}
+						]
+					}
+				],
+				"name": "Saudi National Insurance"
+			}
+		},
+		{
+			"fullUrl": "http://saudicentralpharmacy.sa.com/Coverage/41",
+			"resource": {
+				"resourceType": "Coverage",
+				"id": "41",
+				"meta": {
+					"profile": [
+						"http://nphies.sa/fhir/ksa/nphies-fs/StructureDefinition/coverage|1.0.0"
+					]
+				},
+				"identifier": [
+					{
+						"system": "http://sni.com.sa/memberid",
+						"value": "10100000"
+					}
+				],
+				"status": "active",
+				"type": {
+					"coding": [
+						{
+							"system": "http://nphies.sa/terminology/CodeSystem/coverage-type",
+							"code": "EHCPOL",
+							"display": "extended healthcare"
+						}
+					]
+				},
+				"subscriber": {
+					"reference": "http://saudicentralpharmacy.sa.com/Patient/123456777"
+				},
+				"beneficiary": {
+					"reference": "http://saudicentralpharmacy.sa.com/Patient/123456777"
+				},
+				"relationship": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+							"code": "self",
+							"display": "Self"
+						}
+					]
+				},
+				"period": {
+					"start": "2021-08-30",
+					"end": "2021-08-30"
+				},
+				"payor": [
+					{
+						"reference": "http://sni.com.sa/Organization/bff3aa1fbd3648619ac082357bf135db"
+					}
+				],
+				"class": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+									"code": "group"
+								}
+							]
+						},
+						"value": "ABC1234",
+						"name": "Elal Constructions"
+					}
+				],
+				"network": "7"
+			}
+		}
+	]
+}
